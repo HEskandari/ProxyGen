@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{928A0D16-A2DA-487B-9685-72D66FB66318}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProxyGen</RootNamespace>
+    <AssemblyName>ProxyGen</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Log4Net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Silverlight.ServiceReference">
+      <HintPath>..\lib\Microsoft\Microsoft.Silverlight.ServiceReference.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseCodeGenerator.cs" />
+    <Compile Include="CodeGeneratorFileWriter.cs" />
+    <Compile Include="Helper\DataContractHelper.cs" />
+    <Compile Include="Helper\SingleEnumerable.cs" />
+    <Compile Include="CodeUnitGeneratorFactory.cs" />
+    <Compile Include="Helper\CollectionExtensions.cs" />
+    <Compile Include="Helper\ExceptionHelper.cs" />
+    <Compile Include="Helper\ObjectSerializer.cs" />
+    <Compile Include="Helper\PathExtensions.cs" />
+    <Compile Include="ProxyGeneratorSettings.cs" />
+    <Compile Include="ServiceGenerator\AsmxCodeUnitGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceGenerator\BaseCodeUnitGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceGenerator\SilverlightCodeUnitGenerator.cs" />
+    <Compile Include="ServiceGenerator\IServiceCodeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServiceGenerator\WcfCodeUnitGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Settings\EndpointSetting.cs" />
+    <Compile Include="Settings\ServiceTargetType.cs" />
+    <Compile Include="Settings\TypeMappingSetting.cs" />
+    <Compile Include="Settings\GeneratorSetting.cs" />
+    <Compile Include="CodeGeneratorFactory.cs" />
+    <Compile Include="CodeGeneratorInitializer.cs" />
+    <Compile Include="Settings\ContractSetting.cs" />
+    <Compile Include="Settings\ImportSetting.cs" />
+    <Compile Include="Settings\ProxyGenSetting.cs" />
+    <Compile Include="Generators\ContractCodeGenerator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generators\ProxyCodeGenerator.cs" />
+    <Compile Include="ProxyGenerator.cs" />
+    <Compile Include="Settings\ServiceSetting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProxyGen.Settings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

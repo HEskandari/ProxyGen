@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProxyGenSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Language>CSharp</Language>
+    <TargetType>Silverlight</TargetType><!-- ASMX, WCF, Silverlight -->
+    <OverwritePartials>true</OverwritePartials>
+    <Services>
+        <Namespace>Test.ProxyGen.Services</Namespace>
+        <OutputDirectory>T:\Gen\Services</OutputDirectory>
+    </Services>
+    <Contracts>
+        <Namespace>Test.ProxyGen.Contracts</Namespace>
+        <OutputDirectory>T:\Gen\Contracts</OutputDirectory>
+    </Contracts>
+    <Imports>
+        <Import Namespace="System.Diagnostics"/>
+        <Import Namespace="System.IO"/>
+        <Import Namespace="Test.ProxyGen.Contracts"/>
+    </Imports>
+    <TypeMappings></TypeMappings>
+    <EndPoints>
+        <EndPoint Uri="http://localhost:9090/AdSalesNG-AdSalesNG/RichClientServices?WSDL" />
+    </EndPoints>
+</ProxyGenSetting>
